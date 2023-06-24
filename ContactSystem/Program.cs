@@ -6,10 +6,14 @@ using System.Threading.Tasks;
 
 namespace ContactSystem
 {
-    internal class Program
+    public  class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
+            Console.WriteLine("Welcome to the  AddressBook program");
+            ContactDetails contactDetails = new ContactDetails();
+            contactDetails.details();
+            Console.ReadLine();
         }
     }
 }
