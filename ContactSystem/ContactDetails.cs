@@ -11,11 +11,14 @@ namespace ContactSystem
     public class ContactDetails
     {
         List<AddressBook> list = new List<AddressBook>();
-       
+        public int num = 0;
         public void Details()
         {
             AddressBook address = new AddressBook();
-           Console.Write("Enter firstName: ");
+            num++;
+            Console.WriteLine(" Information {0} ",num);
+
+            Console.Write("Enter firstName: ");
             address.firstName = Console.ReadLine();
             Console.Write("Enter Last Name: ");
             address.lastName = Console.ReadLine();
@@ -41,7 +44,10 @@ namespace ContactSystem
             foreach (var address in list)
             {
                 
-                Console.WriteLine(address.firstName + "\n" + address.lastName + "\n" + address.address + "\n" + address.city + "\n" + address.state + "\n" + address.phoneNumber + "\n" + address.eMail+"\n");
+                Console.WriteLine(" Information {0} ", num);
+                Console.WriteLine("\n" + "FirstName   = " + address.firstName + "\n" + "Second Name = " + address.lastName + "\n" + "Address     = " + address.address + "\n"
+                                   + "City        = " + address.city + "\n" + "State       = " + address.state + "\n" + "PhoneNumber = " + address.phoneNumber + "\n" +
+                                   "Zip Code    = " + address.postcode + "\n" + "Country     = " + address.country + "\n" + "Email       = " + address.eMail);
             }
         }
         public void editContact()
