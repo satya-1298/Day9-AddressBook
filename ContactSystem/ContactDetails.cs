@@ -10,101 +10,55 @@ namespace ContactSystem
 {
     public class ContactDetails
     {
-        List<AddressBook> list = new List<AddressBook>();
-        public int num = 0;
-        public void Details()
+        Dictionary<string, List<AddressBook>> addressList = new Dictionary<string, List<AddressBook>>();
+        public void AddAddress()
         {
+            List<AddressBook> list = new List<AddressBook>();
             AddressBook address = new AddressBook();
-            num++;
-            Console.WriteLine(" Information {0} ",num);
-
-            Console.Write("Enter firstName: ");
+            Console.Write("Enter firstName : ");
             address.firstName = Console.ReadLine();
-            Console.Write("Enter Last Name: ");
-            address.lastName = Console.ReadLine();
-            Console.Write("Enter Address: ");
-            address.address = Console.ReadLine();
-            Console.Write("Enter city: ");
-            address.city = Console.ReadLine();
-            Console.Write("Enter state: ");
-            address.state = Console.ReadLine();
-            Console.Write("Enter Zip");
-            address.postcode = Console.ReadLine();  
-            Console.Write("Enter country");
-            address.country = Console.ReadLine();
-            Console.Write("Enter phone umber: ");
-            address.phoneNumber = Console.ReadLine();
-            Console.Write("Enter email: ");
-            address.eMail = Console.ReadLine();
-            list.Add(address);
-            Console.WriteLine("\n");
-        }
-        public void displayContact()
-        {
-            foreach (var address in list)
+            if (addressList.ContainsKey(address.firstName))
             {
-                
-                Console.WriteLine(" Information {0} ", num);
-                Console.WriteLine("\n" + "FirstName   = " + address.firstName + "\n" + "Second Name = " + address.lastName + "\n" + "Address     = " + address.address + "\n"
-                                   + "City        = " + address.city + "\n" + "State       = " + address.state + "\n" + "PhoneNumber = " + address.phoneNumber + "\n" +
-                                   "Zip Code    = " + address.postcode + "\n" + "Country     = " + address.country + "\n" + "Email       = " + address.eMail);
+                Console.WriteLine("Duplicate entries are not possible");
+            }
+            else
+            {
+               
+                Console.Write("Enter Last Name : ");
+                address.lastName = Console.ReadLine();
+                Console.Write("Enter Address : ");
+                address.address = Console.ReadLine();
+                Console.Write("Enter city : ");
+                address.city = Console.ReadLine();
+                Console.Write("Enter state : ");
+                address.state = Console.ReadLine();
+                Console.Write("Enter Zip : ");
+                address.postcode = Console.ReadLine();
+                Console.Write("Enter country : ");
+                address.country = Console.ReadLine();
+                Console.Write("Enter phone umber : ");
+                address.phoneNumber = Console.ReadLine();
+                Console.Write("Enter email : ");
+                address.eMail = Console.ReadLine();
+                list.Add(address);
+                addressList.Add(address.firstName, list);
             }
         }
-        public void editContact()
+        public void Display()
         {
-            Console.WriteLine("Edit by using First Name: ");
-            String name = Console.ReadLine();
-            foreach (var data in list)
+            foreach (var key in addressList.Keys)
             {
-                if (data.firstName == name)
+                Console.WriteLine("******************************");
+                Console.WriteLine("key is: " + key);
+                Console.WriteLine(key +" Details are");
+                foreach (var items in addressList[key])
                 {
-                    Console.WriteLine("Enter option to edit:\n1.First Name\n2.Second Name\n3.Address\n4.city\n5.state\n6.phone number\n7.email");
-                    int option = Convert.ToInt32(Console.ReadLine());
-                    switch (option)
-                    {
-                        case 1:
-                            Console.WriteLine("Enter first name ");
-                            data.firstName = Console.ReadLine();
-                            break;
-                        case 2:
-                            Console.WriteLine("Enter last number ");
-                            data.lastName = Console.ReadLine();
-                            break;
-                        case 3:
-                            Console.WriteLine("Enter address");
-                            data.address = Console.ReadLine();
-                            break;
-                        case 4:
-                            Console.WriteLine("Enter city");
-                            data.city = Console.ReadLine();
-                            break;
-                        case 5:
-                            Console.WriteLine("Enter state");
-                            data.state = Console.ReadLine();
-                            break;
-                        case 6:
-                            Console.WriteLine("Enter phne number");
-                            data.phoneNumber = Console.ReadLine();
-                            break;
-                        case 7:
-                            Console.WriteLine("Enter email");
-                            data.eMail = Console.ReadLine();
-                            break;
-                    }
+                    Console.WriteLine("\n" + "FirstName   = " + items.firstName + "\n" + "Second Name = " + items.lastName + "\n" + "Address     = " + items.address + "\n"
+                                                     + "City        = " + items.city + "\n" + "State       = " + items.state + "\n" + "PhoneNumber = " + items.phoneNumber + "\n" +
+                                                     "Zip Code    = " + items.postcode + "\n" + "Country     = " + items.country + "\n" + "Email       = " + items.eMail);
                 }
             }
         }
-        public void deleteContact()
-        {
-            AddressBook address = new AddressBook();
-            Console.WriteLine("Enter name to delete details");
-            String name = Console.ReadLine();
-            foreach (var data in list)
-            {
-                if (data.firstName.Equals(name))
-                    address = data;
-            }
-            list.Remove(address);
-        }
     }
 }
+
