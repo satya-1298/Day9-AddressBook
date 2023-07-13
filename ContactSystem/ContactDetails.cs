@@ -59,6 +59,21 @@ namespace ContactSystem
                 }
             }
         }
+        public void SearchByCity()
+        {
+            Console.WriteLine("Enter city to search");
+            string city = Console.ReadLine();
+            Console.WriteLine("The people in {0} city are: " ,city);
+            foreach (var key in addressList.Keys)
+            {
+                foreach (var items in addressList[key].Where(addressList => addressList.city.Equals(city)).ToList())
+                {
+                    Console.WriteLine("\n" + "FirstName   = " + items.firstName + "\n" + "Second Name = " + items.lastName + "\n" + "Address     = " + items.address + "\n"
+                                                     + "City        = " + items.city + "\n" + "State       = " + items.state + "\n" + "PhoneNumber = " + items.phoneNumber + "\n" +
+                                                     "Zip Code    = " + items.postcode + "\n" + "Country     = " + items.country + "\n" + "Email       = " + items.eMail);
+                }
+            }
+        }
     }
 }
 
