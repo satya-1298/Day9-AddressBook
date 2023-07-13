@@ -74,6 +74,24 @@ namespace ContactSystem
                 }
             }
         }
+        public void CountAddress()
+        {
+            int count = 0;
+            Console.WriteLine("Enter city to search");
+            string state = Console.ReadLine();
+            Console.WriteLine("The people in {0} state are: ", state);
+            foreach (var key in addressList.Keys)
+            {
+                foreach (var items in addressList[key].Where(addressList => addressList.state.Equals(state)).ToList())
+                {
+                    Console.WriteLine("\n" + "FirstName   = " + items.firstName + "\n" + "Second Name = " + items.lastName + "\n" + "Address     = " + items.address + "\n"
+                                                     + "City        = " + items.city + "\n" + "State       = " + items.state + "\n" + "PhoneNumber = " + items.phoneNumber + "\n" +
+                                                     "Zip Code    = " + items.postcode + "\n" + "Country     = " + items.country + "\n" + "Email       = " + items.eMail);
+                    count++;
+                }
+            }
+            Console.WriteLine("There are {0} Persons in {1} state", count, state);
+        }
     }
 }
 
