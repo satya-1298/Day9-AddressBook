@@ -14,7 +14,11 @@ namespace ContactSystem
             bool flag = true;
             while (flag)
             {
-                Console.Write("1.Add Contact\n2.Display\n3.SearchContactByState\n4.CountPersonInSameState\n5.exit\nEnter your option: ");
+                Console.WriteLine("---------------------------------------------");
+                Console.WriteLine("Choose the option");
+                Console.WriteLine("---------------------------------------------");
+                Console.WriteLine("1.Add Contact\n2.Display\n3.SearchContactByState\n4.CountPersonInSameState\n5.Write Contact to File\nEnter your option: ");
+                Console.WriteLine("---------------------------------------------");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -29,8 +33,11 @@ namespace ContactSystem
                         break;
                     case 4:
                         add.CountAddress();
-                        break;  
+                        break;
                     case 5:
+                        add.Read_File();
+                        break;
+                    default :
                         flag = false;
                         break;
                 }

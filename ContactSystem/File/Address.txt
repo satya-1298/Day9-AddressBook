@@ -1,0 +1,18 @@
+Address of Sai
+ FirstName = Sai 
+ LastName = Adabala 
+ PhoneNumber = 8372987473 
+ State = AndhraPradesh 
+ Country = India 
+ Zip Code = 534213 
+ Email = satya746@gmail.com
+
+Address of Devi
+ FirstName = Devi 
+ LastName = Kanna 
+ PhoneNumber = 8374743232 
+ State = Maharastra 
+ Country = India 
+ Zip Code = 4739477 
+ Email = devi232@gmail.com
+
